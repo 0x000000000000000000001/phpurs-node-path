@@ -26,20 +26,16 @@ $exports['concat'] = function($segments) use ($normalize) {
     return $normalize(\implode('/', $segments));
 };
 
-$exports['resolve'] = function($from) use ($normalize) {
-    return function($to) use ($from, $normalize) {
-        return function() use ($from, $to, $normalize) {
-            $paths = \array_merge([\getcwd()], $from, [$to]);
-            return $normalize(\implode('/', $paths));
-        };
+$exports['resolve'] = function($from, $to) use ($normalize) {
+    return function() use ($from, $to, $normalize) {
+        $paths = \array_merge([\getcwd()], $from, [$to]);
+        return $normalize(\implode('/', $paths));
     };
 };
 
-$exports['relative'] = function($from) {
-    return function($to) use ($from) {
-        // Very naive stub
-        return $to;
-    };
+$exports['relative'] = function($from, $to) {
+    // Very naive stub
+    return $to;
 };
 
 $exports['dirname'] = function($p) {
@@ -50,10 +46,8 @@ $exports['basename'] = function($p) {
     return \basename($p);
 };
 
-$exports['basenameWithoutExt'] = function($p) {
-    return function($ext) use ($p) {
-        return \basename($p, $ext);
-    };
+$exports['basenameWithoutExt'] = function($p, $ext) {
+    return \basename($p, $ext);
 };
 
 $exports['extname'] = function($p) {
