@@ -9,11 +9,6 @@ package:
     dependencies: []
 workspace:
   packageSet:
-    registry: 77.12.0
-  extraPackages: {}
-
-workspace:
-  packageSet:
     registry: 77.7.0
   extraPackages:
     aff:
