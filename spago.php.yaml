@@ -6,7 +6,8 @@ package:
     - prelude
   test:
     main: Test.Main
-    dependencies: []
+    dependencies:
+      - assert
 workspace:
   packageSet:
     registry: 77.7.0
